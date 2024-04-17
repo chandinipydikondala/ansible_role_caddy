@@ -1,0 +1,22 @@
+# Example Caddyfile enabling Prometheus metrics
+
+#localhost
+
+#respond "Hello World from Caddy"
+
+{
+    http_port 80
+}
+
+# First site configuration
+localhost {
+    root * /var/www/html
+    file_server
+}
+
+# Second site configuration with Prometheus metrics enabled
+localhost:2019 {
+    root * /var/www/metrics
+    file_server
+    metrics
+}

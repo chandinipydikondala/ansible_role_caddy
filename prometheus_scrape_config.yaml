@@ -1,0 +1,11 @@
+global:
+  scrape_interval: 15s # default is 1 minute
+
+scrape_configs:
+  - job_name: caddy
+    static_configs:
+      - targets: ['localhost:2019']
+
+# start up Prometheus
+# prometheus --config.file=prometheus.yaml
+# curl http://localhost:2019/metrics
